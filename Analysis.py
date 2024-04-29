@@ -1,5 +1,5 @@
-from openai import OpenAI
 import openai
+from openai import OpenAI
 import PyPDF2
 import streamlit as st
 import pandas as pd
