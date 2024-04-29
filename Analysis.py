@@ -6,7 +6,7 @@ import pandas as pd
 from docx import Document
 
 with st.sidebar:
-    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
+    openai.api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
 
 # Function to read and process the uploaded DOCX file
 def process_docx(uploaded_file):
@@ -79,7 +79,7 @@ if prompt := st.chat_input():
             if pdf_text:
                 prompt += "\n" + pdf_text
 
-    client = OpenAI(api_key=openai_api_key)
+    client = OpenAI(api_key=openai.api_key)
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     if (choice == "Summarization Tool"):
